@@ -13,12 +13,13 @@ dotenv.config();
 const corsOptions = {
   credentials: true,
   ///..other options
+  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
 };
 
-app.use(cors(corsOptions));
-app.use(cookieParser());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use(cors(corsOptions));
+app.use(cookieParser());
 
 // Importing Routes
 const post = require("./routes/post");
@@ -28,10 +29,10 @@ const user = require("./routes/user");
 app.use("/api/v1", post);
 app.use("/api/v1", user);
 app.get("/api/v1/test", (req, res) => {
-  return res.send('Hi, app working fine in test')
+  return res.status(200).send('Hi, app working fine in test')
 })
 app.get("/", (req, res) => {
-  return res.send("Welcome to social media app backend")
+  return res.status(200).send("Welcome to social media app backend")
 })
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 

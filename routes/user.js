@@ -29,38 +29,38 @@ router.route("/register").post(register);
 
 router.route("/login").post(login);
 
-router.route("/logout").get(logout);
+router.route("/logout").post(logout);
 
 router.route("/update/password").put(isAuthenticated, updatePassword);
 
 router.route("/update/profile").put(isAuthenticated, updateProfile);
 
 router.route("/delete/me").delete(isAuthenticated, deleteMyProfile);
-router.route("/me").get(isAuthenticated, myProfile);
+router.route("/me").post(isAuthenticated, myProfile);
 
-router.route("/my/posts").get(isAuthenticated, getMyPosts);
+router.route("/my/posts").post(isAuthenticated, getMyPosts);
 
-router.route("/userposts/:id").get(isAuthenticated, getUserPosts);
+router.route("/userposts/:id").post(isAuthenticated, getUserPosts);
 
-router.route("/user/:id").get(isAuthenticated, getUserProfile);
+router.route("/user/:id").post(isAuthenticated, getUserProfile);
 
-router.route("/users").get(isAuthenticated, getAllUsers);
+router.route("/users").post(isAuthenticated, getAllUsers);
 
-router.route("/friends").get(isAuthenticated, getAllFriends);
+router.route("/friends").post(isAuthenticated, getAllFriends);
 
-router.route("/friends/others").get(isAuthenticated, getAllFriendsOfOthers);
+router.route("/friends/others").post(isAuthenticated, getAllFriendsOfOthers);
 
-router.route("/mutualFriends").get(isAuthenticated, getAllMutualFriends);
+router.route("/mutualFriends").post(isAuthenticated, getAllMutualFriends);
 
-router.route("/requests").get(isAuthenticated, getAllFriendRequests);
+router.route("/requests").post(isAuthenticated, getAllFriendRequests);
 
-router.route("/request/:id").get(isAuthenticated, friendRequestHandler);
+router.route("/request/:id").post(isAuthenticated, friendRequestHandler);
 
-router.route("/request/accept/:id").get(isAuthenticated, friendRequestAccepted);
+router.route("/request/accept/:id").post(isAuthenticated, friendRequestAccepted);
 
-router.route("/request/decline/:id").get(isAuthenticated, friendRequestDeclined);
+router.route("/request/decline/:id").post(isAuthenticated, friendRequestDeclined);
 
-router.route("/suggestions").get(isAuthenticated, getAllFriendSuggestions);
+router.route("/suggestions").post(isAuthenticated, getAllFriendSuggestions);
 
 router.route("/forgot/password").post(forgotPassword);
 
