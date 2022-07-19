@@ -25,6 +25,9 @@ const post = require("./routes/post");
 const user = require("./routes/user");
 
 // Using Routes
+app.get("/api/v1/test", (req, res) => {
+  res.send('Hi, app working fine in test')
+})
 app.use("/api/v1", post);
 app.use("/api/v1", user);
 
