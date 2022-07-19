@@ -25,12 +25,14 @@ const post = require("./routes/post");
 const user = require("./routes/user");
 
 // Using Routes
-app.get("/api/v1/test", (req, res) => {
-  res.send('Hi, app working fine in test')
-})
 app.use("/api/v1", post);
 app.use("/api/v1", user);
-
+app.get("/api/v1/test", (req, res) => {
+  return res.send('Hi, app working fine in test')
+})
+app.get("/", (req, res) => {
+  return res.send("Welcome to social media app backend")
+})
 // app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // app.get("*", (req, res) => {
