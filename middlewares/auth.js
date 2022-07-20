@@ -6,7 +6,7 @@ exports.isAuthenticated = async (req, res, next) => {
     const { token } = req.body;
     if (!token) {
       return res.status(401).json({
-        message: "Please login first. Varan here",
+        message: "Login to continue",
       });
     }
 
